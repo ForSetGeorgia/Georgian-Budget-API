@@ -291,6 +291,74 @@ RSpec.describe 'BudgetFiles' do
           expect(finance.amount.to_f).to eq(89611000)
         end
       end
+
+      describe '60 00 ა(ა)იპ – რიჩარდ გ. ლუგარის საზოგადოებრივი ჯანმრთელობის კვლევითი ცენტრი' do
+        let(:budget_item) do
+          BudgetItem.find(
+            code: '60 00',
+            name: 'ა(ა)იპ – რიჩარდ გ. ლუგარის საზოგადოებრივი ჯანმრთელობის კვლევითი ცენტრი'
+          )
+        end
+
+        it 'saved the 2013 spent amount' do
+          finance = budget_item.spent_finances
+          .with_time_period(Year.new(2013))
+          .first
+
+          expect(finance.amount.to_f).to eq(550700)
+        end
+
+        it 'did not save the 2014 planned amount' do
+          finance = budget_item.planned_finances
+          .with_time_period(Year.new(2014))
+          .first
+
+          expect(finance).to eq(nil)
+        end
+
+        it 'did not save the 2015 planned amount' do
+          finance = budget_item.planned_finances
+          .with_time_period(Year.new(2015))
+          .first
+
+          expect(finance).to eq(nil)
+        end
+
+      end
+
+      describe '58 10 05 - განახლებადი ენერგიის პროგრამა II (KfW)' do
+        let(:budget_item) do
+          BudgetItem.find(
+            code: '58 10 05',
+            name: 'განახლებადი ენერგიის პროგრამა II (KfW)'
+          )
+        end
+
+        it 'did not save the 2013 spent amount' do
+          finance = budget_item.spent_finances
+          .with_time_period(Year.new(2013))
+          .first
+
+          expect(finance).to eq(nil)
+        end
+
+        it 'did not save the 2014 planned amount' do
+          finance = budget_item.planned_finances
+          .with_time_period(Year.new(2014)).first
+
+          expect(finance).to eq(nil)
+        end
+
+        it 'saved the 2015 planned amount' do
+          finance = budget_item.planned_finances
+          .with_time_period(Year.new(2015)).first
+
+          expect(finance.amount.to_f).to eq(200000)
+        end
+
+      end
+
+
     end
   end
 end
