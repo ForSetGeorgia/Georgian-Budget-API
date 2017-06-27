@@ -1,0 +1,38 @@
+<% show_name = (can? :create, @item) ? true : false %>
+
+<%
+page_title t('.title',
+             label: t('activerecord.attributes.item.title'),
+             label_value: @item.title)
+%>
+
+<div class='actions-container'>
+  <%= render partial: 'shared/show_actions',
+        locals: {
+          object: @item,
+          index_path: admin_media_path,
+          show_path: admin_medium_path,
+          edit_path: edit_admin_medium_path
+                }
+  %>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%=t 'activerecord.attributes.medium.title' %>:</strong></dt>
+  <dd><%= @item.title %></dd>
+  <dt><strong><%=t 'activerecord.attributes.medium.author' %>:</strong></dt>
+  <dd><%= @item.author %></dd>
+  <dt><strong><%=t 'activerecord.attributes.medium.description' %>:</strong></dt>
+  <dd><%= simple_format_no_tags(@item.description) %></dd>
+  <dt><strong><%=t 'activerecord.attributes.medium.media_name' %>:</strong></dt>
+  <dd><%= @item.media_name %></dd>
+  <% if @item.embed.present? %>
+    <dt><strong><%=t 'activerecord.attributes.medium.embed' %>:</strong></dt>
+    <dd><%= @item.embed.html_safe %></dd>
+  <% else %>
+    <dt><strong><%=t 'activerecord.attributes.medium.image' %>:</strong></dt>
+    <dd><%= image_tag @item.image.url %></dd>
+  <% end %>
+  <dt><strong><%=t 'activerecord.attributes.medium.source' %>:</strong></dt>
+  <dd><%= @item.source %></dd>
+</dl>

@@ -85,4 +85,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = {
     host: ENV['PRODUCTION_WEB_URL']
   }
+
+  config.asset_host = ENV['PRODUCTION_WEB_URL']
 end

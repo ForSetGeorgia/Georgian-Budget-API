@@ -19,22 +19,23 @@ ka:
     common:
       account: ანგარიში
       actions: მოქმედებები
-      description: This is a description of the project that will appear in the meta tags.
       jumpstart:
         slogan: JumpStart Georgia - ჩვენ გაწვდით ინფორმაციას მონაცემებით და დიზაინით
       name: საქართველოს ბიუჯეტი
+      description: This is a description of the project that will appear in the meta tags.
+    links:
+      page_contents: გვერდის ტექსტის რედაქტირება
+      media: მედიას რედაქტირება
+      admin: ადმინის სექცია
     labels:
       translated_field: "%{field} (%{language})"
-    links:
-      admin: ადმინის სექცია
-      page_contents: გვერდის ტექსტის რედაქტირება
     locale:
-      long:
-        en: English
-        ka: ქართული
       short:
         en: En
         ka: ქა
+      long:
+        en: English
+        ka: ქართული
     msgs:
       does_not_exist: თქვენ ცდილობთ ისეთ გვერდზე შეშვლას, რომელიც არ არსებობს.
       not_authorized: თქვენ არ ხართ ავტორიზებული, რომ ნახოთ ეს გვერდი.

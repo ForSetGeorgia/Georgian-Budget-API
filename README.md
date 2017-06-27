@@ -10,6 +10,7 @@ This api application visualizes the national budget of the Republic of Georgia.
   4. Set database names for `DB_NAME` and `TEST_DB_NAME`, such as 'budget_dev' and 'budget_test'
 1. Install [docker](https://www.docker.com/products/overview) and [docker-compose](https://docs.docker.com/compose/install/)
 1. `docker-compose build` (takes a while)
+TODO ubuntu related issue
 1. `docker-compose up`
 1. `docker-compose run api rake db:create db:migrate db:seed`
 1. Add budget data to database. Two options:

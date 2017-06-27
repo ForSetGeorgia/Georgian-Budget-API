@@ -35,3 +35,8 @@ URL: https://gist.github.com/bobbygrace/9e961e8982f42eb91b80
   margin: 20px 0px;
 }
 
+.dl-horizontal {
+  dd {
+    img { max-width: 100%; }
+  }
+}

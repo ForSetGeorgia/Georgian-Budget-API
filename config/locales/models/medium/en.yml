@@ -1,0 +1,18 @@
+---
+en:
+  activerecord:
+    attributes:
+      medium:
+        title: Title
+        author: Author
+        description: Description
+        media_name: Media Name
+        embed: Embed code
+        source: Source
+        image_id: Image
+        story_published_at: Date of story publishing
+        published: Is published
+    models:
+      medium:
+        one: Medium
+        other: Media

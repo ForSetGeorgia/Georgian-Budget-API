@@ -25,6 +25,7 @@ class Ability
   def init_site_admin_abilities(content_resources)
     can :manage, content_resources
     can [:read, :edit, :update], PageContent
+    can [:read, :edit, :update], Medium
     can :manage, User
     can :manage, Role
     cannot :manage, User, role: { name: 'super_admin' }
@@ -33,5 +34,6 @@ class Ability
 
   def init_page_section
     can [:read, :edit, :update], PageContent
+    can [:read, :edit, :update], Medium
   end
 end

@@ -59,4 +59,6 @@ Rails.application.configure do
 
   # Allows web console when running rails on docker
   config.web_console.whitelisted_ips = '172.19.0.1'
+
+  config.asset_host = 'http://localhost:3000'
 end

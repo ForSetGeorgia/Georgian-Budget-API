@@ -1,0 +1,60 @@
+<%
+  model_class = Medium
+  show_name = (can? :create, @item) ? true : false
+  page_title t('activerecord.models.medium', count: 999)
+%>
+
+<div class='actions-container'>
+  <%= render partial: 'shared/index_actions',
+        locals: {
+          model_class: model_class,
+          new_path: new_admin_medium_path
+        }
+  %>
+</div>
+
+<table class='table table-striped table-hover table-nonfluid datatable-admin'>
+  <thead>
+    <tr>
+      <th></th>
+      <th><%=t 'activerecord.attributes.medium.title' %></th>
+      <th><%=t 'activerecord.attributes.medium.author' %></th>
+      <th><%=t 'activerecord.attributes.medium.description' %></th>
+      <th><%=t 'activerecord.attributes.medium.media_name' %></th>
+      <th class='action-col'><%=t 'shared.common.actions' %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |medium| %>
+      <tr>
+        <td>
+          <%= link_to t('shared.actions.view'),
+                      admin_medium_path(medium),
+                      class: 'btn btn-default' %>
+        </td>
+
+        <td><%= medium.title %></td>
+        <td><%= medium.author %></td>
+        <td><%= medium.description %></td>
+        <td><%= medium.media_name %></td>
+
+        <td>
+          <%= if can? :edit, medium
+                link_to t('shared.actions.edit'),
+                        edit_admin_medium_path(medium),
+                        class: 'btn btn-default'
+          end %>
+
+          <%= if can? :destroy, medium
+                link_to t('shared.actions.destroy'),
+                        admin_medium_path(medium),
+                        method: :delete,
+                        data: { confirm: t('shared.prompts.confirm') },
+                        class: 'btn btn-danger'
+          end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

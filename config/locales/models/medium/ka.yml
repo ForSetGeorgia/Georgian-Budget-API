@@ -1,0 +1,16 @@
+---
+ka:
+  activerecord:
+    attributes:
+      medium:
+        title: Title
+        author: Author
+        description: Description
+        media_name: Media Name
+        embed: Embed code
+        source: Source
+        image: Image
+    models:
+      medium:
+        one: Medium
+        other: Media

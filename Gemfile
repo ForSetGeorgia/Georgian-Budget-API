@@ -78,6 +78,15 @@ gem 'gon', '~> 6.0', '>= 6.0.1'
 # required to load assets
 gem 'coffee-script', '~> 2.4', '>= 2.4.1'
 
+# File upload solution
+gem 'carrierwave'
+
+# Photo resizing
+gem 'mini_magick'
+
+# Pagination for media api calls
+gem 'will_paginate', '~> 3.1.0'
+
 group :development do
   # use pry as default rails console
   gem 'pry-rails', '~> 0.3.4'

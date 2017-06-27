@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161215134516) do
+ActiveRecord::Schema.define(version: 20170626060603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,32 @@ ActiveRecord::Schema.define(version: 20161215134516) do
     t.datetime "updated_at",    null: false
     t.index ["codeable_type", "codeable_id"], name: "index_codes_on_codeable_type_and_codeable_id", using: :btree
     t.index ["start_date"], name: "index_codes_on_start_date", using: :btree
+  end
+
+  create_table "media", force: :cascade do |t|
+    t.date     "story_published_at"
+    t.boolean  "published",          default: false
+    t.date     "published_at"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  create_table "medium_images", force: :cascade do |t|
+    t.string "image"
+  end
+
+  create_table "medium_translations", force: :cascade do |t|
+    t.integer  "medium_id"
+    t.string   "locale"
+    t.string   "title"
+    t.string   "author"
+    t.text     "description"
+    t.string   "media_name"
+    t.text     "embed"
+    t.string   "source"
+    t.integer  "image_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "name_translations", force: :cascade do |t|

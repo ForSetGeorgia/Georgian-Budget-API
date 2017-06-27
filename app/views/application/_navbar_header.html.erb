@@ -21,6 +21,9 @@
               <% if current_user.is?(['super_admin', 'site_admin', 'content_manager']) %>
                 <li><%= link_to t('shared.links.page_contents'), admin_page_contents_path %></li>
               <% end %>
+              <% if current_user.is?(['super_admin', 'site_admin', 'content_manager']) %>
+                <li><%= link_to t('shared.links.media'), admin_media_path %></li>
+              <% end %>
               <% if current_user.is?(['super_admin', 'site_admin']) %>
                 <li><%= link_to t('activerecord.models.user', count: 999), admin_users_path %></li>
               <% end %>

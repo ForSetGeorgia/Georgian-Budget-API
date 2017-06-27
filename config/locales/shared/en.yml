@@ -25,6 +25,7 @@ en:
       description: This is a description of the project that will appear in the meta tags.
     links:
       page_contents: Edit Page Text
+      media: Edit Media
       admin: Admin Section
     labels:
       translated_field: "%{field} (%{language})"

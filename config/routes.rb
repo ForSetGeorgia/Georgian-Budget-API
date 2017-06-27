@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :users, constraints: { format: :html }
       resources :page_contents, constraints: { format: :html }
+      resources :media, constraints: { format: :html }
     end
 
     get '/explore/:nameable_type/:nameable_id',
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
     scope module: :api do
       namespace :v1 do
         resources :page_contents, only: :show, constraints: { format: :json }
+        resources :media, only: :index, constraints: { format: :json }
         get '/last_updated_date' => 'last_updated_date#index'
 
         get '/budget_items/:id' => 'budget_items#show'
