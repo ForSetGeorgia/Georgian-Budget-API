@@ -37,4 +37,6 @@ var RichTextArea = (function() {
 
 $(document).on('turbolinks:load', function() {
   RichTextArea.load();
+
+  $('input.datepicker').datepicker({dateFormat: 'yy-mm-dd'});
 });

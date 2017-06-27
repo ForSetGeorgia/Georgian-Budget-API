@@ -16,6 +16,7 @@
 // turbolinks last. Put other libraries in the marked area in the middle.
 //
 //= require jquery
+//= require jquery-ui/datepicker
 //= require jquery.turbolinks
 //= require jquery_ujs
 

@@ -4,31 +4,33 @@
   <%= f.inputs do %>
     <%= render layout: 'shared/form/translated_inputs',
                locals: { object: object } do |enabled_locale, enabled_locale_name| %>
-      <%= f.input "title_#{enabled_locale}",
+       <% required = enabled_locale == I18n.locale.to_s %>
+      <%= f.input "title_#{enabled_locale}", required: required,
         label: t('shared.labels.translated_field', field: t('activerecord.attributes.medium.title'), language: enabled_locale_name) %>
-      <%= f.input "author_#{enabled_locale}",
+      <%= f.input "author_#{enabled_locale}", required: required,
         label: t('shared.labels.translated_field', field: t('activerecord.attributes.medium.author'), language: enabled_locale_name) %>
-      <%= f.input "description_#{enabled_locale}", as: :text,
+      <%= f.input "description_#{enabled_locale}", as: :text, required: required,
         label: t('shared.labels.translated_field', field: t('activerecord.attributes.medium.description'), language: enabled_locale_name),
         input_html: { class: 'js-become-rich-text-editor' } %>
-      <%= f.input "media_name_#{enabled_locale}",
+      <%= f.input "media_name_#{enabled_locale}", required: required,
         label: t('shared.labels.translated_field', field: t('activerecord.attributes.medium.media_name'), language: enabled_locale_name) %>
+      <%= f.input "source_#{enabled_locale}", required: required,
+        label: t('shared.labels.translated_field', field: t('activerecord.attributes.medium.source'), language: enabled_locale_name) %>
+      <hr/>
+      <h3><%= t('admin.media.form.hint') %></h3>
       <%= f.input "embed_#{enabled_locale}", as: :text,
         label: t('shared.labels.translated_field', field: t('activerecord.attributes.medium.embed'), language: enabled_locale_name),
           input_html: { rows: 4 } %>
-      <%= f.input "source_#{enabled_locale}",
-        label: t('shared.labels.translated_field', field: t('activerecord.attributes.medium.source'), language: enabled_locale_name) %>
       <%= f.semantic_fields_for MediumImage.new do |j| %>
-        <%= j.input :image, as: :file, input_html: { name: "medium[medium_image][image_#{enabled_locale}]" }, label: t('shared.labels.translated_field', field: t('activerecord.attributes.medium.image_id'), language: enabled_locale_name) %>
+        <%= j.input :image, as: :file, required: false, input_html: { name: "medium[medium_image][image_#{enabled_locale}]", accept: 'image/png,image/gif,image/jpeg' }, label: t('shared.labels.translated_field', field: t('activerecord.attributes.medium.image_id'), language: enabled_locale_name) %>
       <% end %>
       <% if object.persisted? && object.has_locale_image_id(enabled_locale) %>
         <%= image_tag object.direct_image(enabled_locale).url %>
       <% end %>
-
+      <hr/>
     <% end %>
-    <%= f.input :story_published_at %>
+    <%= f.input :story_published_at, :as => :string, input_html: { class: 'datepicker' } %>
     <%= f.input :published %>
-    <%#= f.input :image, as: :file, input_html: { accept: 'image/png,image/gif,image/jpeg' } %>
   <% end %>
 
   <%= f.actions do %>

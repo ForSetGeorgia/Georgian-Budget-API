@@ -6,3 +6,8 @@ ka:
     page_contents:
       show:
         title: Page Contents
+    media:
+      show:
+        title: Media
+      form:
+        hint: Specify Embed code or Image

@@ -2,7 +2,7 @@
 
 <%
 page_title t('.title',
-             label: t('activerecord.attributes.item.title'),
+             label: t('activerecord.attributes.medium.title'),
              label_value: @item.title)
 %>
 
@@ -20,12 +20,18 @@ page_title t('.title',
 <dl class="dl-horizontal">
   <dt><strong><%=t 'activerecord.attributes.medium.title' %>:</strong></dt>
   <dd><%= @item.title %></dd>
+  <dt><strong><%=t 'activerecord.attributes.medium.published' %>:</strong></dt>
+  <dd><%= @item.published %></dd>
+    <dt><strong><%=t 'activerecord.attributes.medium.story_published_at' %>:</strong></dt>
+  <dd><%= @item.story_published_at %></dd>
   <dt><strong><%=t 'activerecord.attributes.medium.author' %>:</strong></dt>
   <dd><%= @item.author %></dd>
   <dt><strong><%=t 'activerecord.attributes.medium.description' %>:</strong></dt>
   <dd><%= simple_format_no_tags(@item.description) %></dd>
   <dt><strong><%=t 'activerecord.attributes.medium.media_name' %>:</strong></dt>
   <dd><%= @item.media_name %></dd>
+  <dt><strong><%=t 'activerecord.attributes.medium.source' %>:</strong></dt>
+  <dd><%= @item.source %></dd>
   <% if @item.embed.present? %>
     <dt><strong><%=t 'activerecord.attributes.medium.embed' %>:</strong></dt>
     <dd><%= @item.embed.html_safe %></dd>
@@ -33,6 +39,4 @@ page_title t('.title',
     <dt><strong><%=t 'activerecord.attributes.medium.image' %>:</strong></dt>
     <dd><%= image_tag @item.image.url %></dd>
   <% end %>
-  <dt><strong><%=t 'activerecord.attributes.medium.source' %>:</strong></dt>
-  <dd><%= @item.source %></dd>
 </dl>

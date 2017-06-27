@@ -58,3 +58,15 @@
 
 // Make gray-light a bit lighter
 $gray-light: lighten($gray-base, 70%);
+
+
+.formtastic .boolean label {
+  padding-left: 0;
+}
+
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+  position: inherit;
+}
