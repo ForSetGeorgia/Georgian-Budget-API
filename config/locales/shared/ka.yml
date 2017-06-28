@@ -23,6 +23,8 @@ ka:
         slogan: JumpStart Georgia - ჩვენ გაწვდით ინფორმაციას მონაცემებით და დიზაინით
       name: საქართველოს ბიუჯეტი
       description: This is a description of the project that will appear in the meta tags.
+      _true: 'Yes'
+      _false: 'No'
     links:
       page_contents: გვერდის ტექსტის რედაქტირება
       media: მედიას რედაქტირება

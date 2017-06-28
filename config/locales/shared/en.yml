@@ -23,6 +23,8 @@ en:
         slogan: JumpStart Georgia - Informing Communities with Data and Design
       name: Georgian Budget
       description: This is a description of the project that will appear in the meta tags.
+      _true: 'Yes'
+      _false: 'No'
     links:
       page_contents: Edit Page Text
       media: Edit Media

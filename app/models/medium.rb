@@ -19,7 +19,7 @@ class Medium < ApplicationRecord
   # validates :title, :author, :description, :media_name, :source, presence: :true
   validates :embed, presence: { if: -> { image_id.blank? } }
   validates :image_id, presence: { if: -> { embed.blank? } }
-  validates_presence_of :published, :story_published_at
+  validates_presence_of :story_published_at
   validates_format_of :source, :with => URI.regexp
 
   #######################
@@ -59,7 +59,9 @@ class Medium < ApplicationRecord
     m.present? ? m.image : nil
   end
 
-
+  def human_published
+    I18n.t("shared.common._#{self.published}")
+  end
 
   #######################
   #######################

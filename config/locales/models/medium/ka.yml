@@ -8,8 +8,10 @@ ka:
         description: Description
         media_name: Media Name
         embed: Embed code
-        source: Source
-        image: Image
+        source: Source URL
+        image_id: Image
+        story_published_at: Date of story publishing
+        published: Is published
     models:
       medium:
         one: Medium

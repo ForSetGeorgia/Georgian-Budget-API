@@ -11,3 +11,6 @@ ka:
         title: Media
       form:
         hint: Specify Embed code or Image
+        placeholder:
+          source: 'ex: http://example.org/budget/...'
+          embed: "ex: iframe, embed, object..."

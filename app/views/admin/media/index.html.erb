@@ -12,15 +12,15 @@
         }
   %>
 </div>
-
 <table class='table table-striped table-hover table-nonfluid datatable-admin'>
   <thead>
     <tr>
       <th></th>
       <th><%=t 'activerecord.attributes.medium.title' %></th>
       <th><%=t 'activerecord.attributes.medium.author' %></th>
-      <th><%=t 'activerecord.attributes.medium.description' %></th>
       <th><%=t 'activerecord.attributes.medium.media_name' %></th>
+      <th><%=t 'activerecord.attributes.medium.story_published_at' %></th>
+      <th><%=t 'activerecord.attributes.medium.published' %></th>
       <th class='action-col'><%=t 'shared.common.actions' %></th>
     </tr>
   </thead>
@@ -36,8 +36,9 @@
 
         <td><%= medium.title %></td>
         <td><%= medium.author %></td>
-        <td><%= strip_tags(medium.description) %></td>
         <td><%= medium.media_name %></td>
+        <td><%= medium.story_published_at %></td>
+        <td><%= medium.human_published %></td>
 
         <td>
           <%= if can? :edit, medium
