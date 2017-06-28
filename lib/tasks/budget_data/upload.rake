@@ -14,7 +14,7 @@ namespace :budget_data do
     ).upload
   end
 
-  desc 'Download all files from JumpStartGeorgia/Georgian-Budget-Files repo to tmp/budget_files'
+  desc 'Download all files from ForSetGeorgia/Georgian-Budget-Files repo to tmp/budget_files'
   task :sync_with_repo do
     require 'fileutils'
 
@@ -25,7 +25,7 @@ namespace :budget_data do
       puts 'Budget files repo already exists; pulling in changes'
       `git pull`
     else
-      `git clone https://github.com/JumpStartGeorgia/Georgian-Budget-Files.git .`
+      `git clone https://github.com/ForSetGeorgia/Georgian-Budget-Files.git .`
     end
   end
 end
