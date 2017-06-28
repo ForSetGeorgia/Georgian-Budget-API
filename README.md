@@ -26,7 +26,7 @@ TODO ubuntu related issue
 1. Sync the local budget files repo with master: `docker-compose run api rake budget_data:sync_with_repo`
 1. Run the uploader (takes a long time): `docker-compose run api rake budget_data:upload`
 
-## Deploy (or run any mina command) from within `api` container
+## Deploy (or run any mina command) from within `docker-compose exec api bash` container
 
 The api container is not configured by default to work for deploying, so you will have to do a little bit of configuration in order to do so. This section is intended to make that configuration easier.
 
@@ -34,12 +34,12 @@ Ideally, this is only a temporary solution until we figure out how to deploy wit
 
 NOTE: The below commands will only work if the container you are setting up to deploy from is named `georgianbudgetapi_api_1`. If it has a different name, then use it below in the `docker cp` commands.
 
-1. Copy your global gitignore into the `api` container:
+1. Copy your global gitignore into the `api` container (called from host):
   ```
   docker cp ~/.gitignore_global georgianbudgetapi_api_1:/root/
   ```
-
-2. Run these commands from within the `api` container:
+  (on ubuntu .gitignore_global step is skipped)
+2. Run these commands from within the `api` container(called from api container):
   ```
   git config --global core.excludesfile /root/.gitignore_global
 
@@ -53,13 +53,13 @@ NOTE: The below commands will only work if the container you are setting up to d
 
   In order: configure git to use .gitignore_global; fix bundle issue described [here](https://github.com/bundler/bundler/issues/4602#issuecomment-233619696); create .ssh directory if it doesn't exist; install rsync, which is a dependency of the deploy process.
 
-3. Make sure your local user has an ssh key at ~/.ssh/id_rsa and ~/.ssh/id_rsa.pub.
+3. Make sure your local user has an ssh key at ~/.ssh/id_rsa and ~/.ssh/id_rsa.pub. (called from host)
   ```
   docker cp ~/.ssh/id_rsa georgianbudgetapi_api_1:/root/.ssh/
   docker cp ~/.ssh/id_rsa.pub georgianbudgetapi_api_1:/root/.ssh/
   ```
 
-4. Add your ssh key to the container's ssh-agent so that it doesn't ask for your passphrase when you deploy. You will have to enter your ssh key's passphrase.
+4. Add your ssh key to the container's ssh-agent so that it doesn't ask for your passphrase when you deploy. You will have to enter your ssh key's passphrase. (called from api container)
 
   ```
   eval "$(ssh-agent -s)"
