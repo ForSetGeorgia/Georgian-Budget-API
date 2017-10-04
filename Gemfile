@@ -58,7 +58,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'font-awesome-sass', '~> 4.4.0'
 
 # Ruby server
-gem 'puma', '~> 3.6'
+gem 'puma', '~> 3.10'
 
 # sends updates to google analytics when turbolinks changes page
 gem 'google-analytics-turbolinks', '~> 0.0.4'
