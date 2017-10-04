@@ -1,5 +1,5 @@
 set :domain, 'alpha.forset.ge'
-set :user, 'budget'
+set :user, 'deploy'
 set :application, 'Budget-API'
 # easier to use https; if you use ssh then you have to create key on server
 set :repository, 'https://github.com/ForSetGeorgia/Georgian-Budget-API'
